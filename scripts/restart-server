@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo Restarting development version of Bibledit at port $USER
+
+cd cloud
+
+killall bibledit 2> /dev/null
+killall bibleditserver 2> /dev/null
+./bibledit &
+if [ $? != 0 ]; then exit 1; fi
+
+cd

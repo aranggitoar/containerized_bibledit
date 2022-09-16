@@ -1,0 +1,62 @@
+#!/bin/bash
+
+echo Install development version of Bibledit at port $1
+
+cd
+
+# Shallow clone of bibledit repository.
+DIRECTORY=source
+cd
+rm -rf $DIRECTORY
+mkdir -p $DIRECTORY
+git clone --depth 1 https://github.com/bibledit/cloud.git $DIRECTORY
+if [ $? != 0 ]; then exit 1; fi
+
+# Create tarball.
+cd
+rm -f bibledit-*.tar.gz
+cd $DIRECTORY
+./configure
+if [ $? != 0 ]; then exit 1; fi
+./reconfigure
+if [ $? != 0 ]; then exit 1; fi
+make dist
+if [ $? != 0 ]; then exit 1; fi
+
+# Copy tarball to home and remove repository.
+cp bibledit-*.tar.gz ~/
+cd
+rm -rf $DIRECTORY
+
+# Install the Bibledit demo
+mkdir -p $1
+tar xf bibledit-*.tar.gz -C $1 --strip-components=1
+if [ $? != 0 ]; then exit 1; fi
+cd $1
+./configure $2 $3 $4
+if [ $? != 0 ]; then exit 1; fi
+echo $1 > config/network-port
+touch config/demo
+touch config/indonesiancloudfree
+touch config/indonesiancloudfreesimple
+
+make --jobs=4
+if [ $? != 0 ]; then exit 1; fi
+
+killall bibledit 2> /dev/null
+killall bibleditserver 2> /dev/null
+./bibledit &
+if [ $? != 0 ]; then exit 1; fi
+
+# Clean build files out.
+#find . -name "*.h" -delete
+#find . -name "*.cpp" -delete
+#find . -name "*.c" -delete
+#find . -name "*.o" -delete
+#find . -name ".deps" -exec rm -r "{}" \; > /dev/null 2>&1
+#find . -name ".dirstamp" -delete
+
+# The tarball is left for further installations.
+# Script removes itself.
+cd
+#rm $0

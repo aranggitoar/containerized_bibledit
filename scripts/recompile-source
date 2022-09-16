@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo Recompile development version of Bibledit at port $1
+
+# Reconfigure and recompile.
+if [ $? != 0 ]; then exit 1; fi
+cd $1
+./configure $2 $3 $4
+
+make --jobs=4
+if [ $? != 0 ]; then exit 1; fi
+
+killall bibledit 2> /dev/null
+killall bibleditserver 2> /dev/null
+./bibledit &
+if [ $? != 0 ]; then exit 1; fi
+
+cd
