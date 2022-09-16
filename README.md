@@ -22,7 +22,7 @@ After that, you'll enter the container's shell as root.
 
 ### Copying something to the container
 
-> `sudo docker cp $PATHTOFILE bibledit-cloud:$PATHTOFILE`
+`sudo docker cp $PATHTOFILE bibledit-cloud:$PATHTOFILE`
 
 Example, inside the root of the Bibledit Cloud repo:
 
@@ -30,7 +30,7 @@ Example, inside the root of the Bibledit Cloud repo:
 
 ### Copying something from the container
 
-> `sudo docker cp bibledit-cloud:$PATHTOFILE $PATHTOFILE`
+`sudo docker cp bibledit-cloud:$PATHTOFILE $PATHTOFILE`
 
 Example, inside the root of the Bibledit Cloud repo:
 
@@ -38,7 +38,7 @@ Example, inside the root of the Bibledit Cloud repo:
 
 ### Running a command in the container from your machine
 
-> `sudo docker exec bibledit-cloud $COMMAND`
+`sudo docker exec bibledit-cloud $COMMAND`
 
 Example, listing the contents of `/root` directory:
 
