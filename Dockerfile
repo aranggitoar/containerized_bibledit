@@ -39,11 +39,11 @@ COPY scripts/* /
 
 # Add config files for enabling Indonesian Cloud Free on user p12070,
 # port configuration, and administrator's account preset
-RUN cd /home/p12070/config \
-	&& touch indonesiancloudfree network-port network-port-secure \
-	&& echo "12070" > network-port \
-	&& echo "12071" > network-port-secure \
-	&& touch admin-username admin-password admin-email \
-	&& echo "user" > admin-username \
-	&& echo "password" > admin-password \
-	&& echo "user@localhost" > admin-email
+# RUN cd /home/p12070/config \
+# 	&& touch indonesiancloudfree network-port network-port-secure \
+# 	&& echo "12070" > network-port \
+# 	&& echo "12071" > network-port-secure \
+# 	&& touch admin-username admin-password admin-email \
+# 	&& echo "user" > admin-username \
+# 	&& echo "password" > admin-password \
+# 	&& echo "user@localhost" > admin-email
