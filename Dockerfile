@@ -32,7 +32,7 @@ RUN useradd -s /bin/bash -m -Gsudo p12070 \
 	&& useradd -s /bin/bash -m -Gsudo p12090 \
 	&& useradd -s /bin/bash -m -Gsudo p13070 \
 	&& useradd -s /bin/bash -m -Gsudo p13080 \
-	&& useradd -s /bin/bash -m -Gsudo p13090 \
+	&& useradd -s /bin/bash -m -Gsudo p13090
 
 # Copy scripts
 COPY scripts/* /
