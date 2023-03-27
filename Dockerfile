@@ -1,8 +1,8 @@
 FROM debian:latest
 
-# Expose the HTTP port,
-# the numbers are arbitrary.
-EXPOSE 25/tcp 80/tcp 110/tcp
+# Expose the SMTP, HTTP, POP3 port,
+# and arbitrary commonly unassigned ports.
+EXPOSE 22/tcp 25/tcp 80/tcp 110/tcp
 EXPOSE 12070/tcp 12071/tcp 12080/tcp 12081/tcp 12090/tcp 12091/tcp
 EXPOSE 13070/tcp 13071/tcp 13080/tcp 13081/tcp 13090/tcp 13091/tcp
 

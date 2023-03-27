@@ -2,6 +2,7 @@
 
 echo Recompile development version of Bibledit at port $1
 
+cd /home/$1
 # Reconfigure and recompile.
 if [ $? != 0 ]; then exit 1; fi
 cd $1
