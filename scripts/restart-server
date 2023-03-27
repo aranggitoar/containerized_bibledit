@@ -2,7 +2,7 @@
 
 echo Restarting development version of Bibledit at port $USER
 
-cd cloud
+cd $USER
 
 killall bibledit 2> /dev/null
 killall bibleditserver 2> /dev/null

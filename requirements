@@ -15,6 +15,9 @@ ldap-utils
 libmimetic-dev
 certbot
 libxml2-dev
+libgumbo-dev
+libutf8proc-dev
+libtidy-dev
 apache2
 cron
 rsync

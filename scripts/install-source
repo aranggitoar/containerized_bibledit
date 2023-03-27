@@ -36,11 +36,9 @@ cd $1
 ./configure $2 $3 $4
 if [ $? != 0 ]; then exit 1; fi
 echo $1 > config/network-port
-touch config/demo
-touch config/indonesiancloudfree
-touch config/indonesiancloudfreesimple
+#touch config/demo
 
-make --jobs=4
+make --jobs=2
 if [ $? != 0 ]; then exit 1; fi
 
 killall bibledit 2> /dev/null
